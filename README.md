@@ -1,4 +1,4 @@
-# EnumerableDemos
-Demos about methods on the Enumerable class 
+# BenchMarkDotnetDemo
+This is a demo using BenchMarkDotnet and inefficient code
 
-https://msdn.microsoft.com/en-us/library/system.linq.enumerable_methods(v=vs.110).aspx
+https://github.com/dotnet/BenchmarkDotNet
