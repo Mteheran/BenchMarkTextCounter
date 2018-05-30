@@ -16,15 +16,16 @@ namespace TextCounterBenchMark
         }
     }
 
-    [SimpleJob(launchCount: 1, warmupCount: 2, targetCount: 10)]
+    [SimpleJob(launchCount: 1, warmupCount: 2, targetCount: 5, invocationCount:1)]
     public class BenchMarkTest
     {
-        [Params(@"C:\Projects\CSharp\BenchMarkTextCounter\Medium.txt", @"C:\Projects\CSharp\BenchMarkTextCounter\Small.txt")]
+        [Params(@"C:\Personal\CSharp\BenchMarkTextCounter\SampleFiles\Small.txt", @"C:\Personal\CSharp\BenchMarkTextCounter\SampleFiles\Medium.txt", @"C:\Personal\CSharp\BenchMarkTextCounter\SampleFiles\Large.txt")]
         public string FileRoot { get; set; }
 
         [Benchmark]
         public void ProcessFile()
         {
+            //vars
             ITextCounterManager ITextManager = new TextCounterManager();
 
             var result = ITextManager.ProcessFile(FileRoot);

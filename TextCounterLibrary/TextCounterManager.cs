@@ -7,7 +7,9 @@ namespace TextCounterLibrary
     {
        public int ProcessFile(string FileRoot)
         {
-            int NumberOfWords = 0, NumberofWordRepeted = 0;
+            if (string.IsNullOrEmpty(FileRoot)) return 0;
+
+            int NumberofWordRepeted = 0;
 
             StreamReader sr = new StreamReader(FileRoot);
 
@@ -23,26 +25,26 @@ namespace TextCounterLibrary
             {
                 if (!string.IsNullOrEmpty(item))
                 {
-                    NumberOfWords++;
-
                     validWords.Add(item);
                 }                
             }
 
-            List<string> repetedWords = new List<string>();
+             Dictionary<string,int> repetedWords = new Dictionary<string,int>();
 
             for (int i = 0; i < validWords.Count; i++)
             {
                 for (int  j = i+1; j < validWords.Count; j++)
                 {
-                    if (validWords[i].ToLower() == validWords[j].ToLower() && !repetedWords.Contains(validWords[j]))
+                    if (validWords[i].ToLower() == validWords[j].ToLower() && !repetedWords.ContainsKey(validWords[j].ToLower()))
                     {
                         NumberofWordRepeted++;
+                        repetedWords.Add(validWords[j].ToLower(), NumberofWordRepeted);
                     }
                 }
             }
 
             return NumberofWordRepeted;
         }
+
     }
 }
