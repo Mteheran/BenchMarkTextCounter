@@ -23,7 +23,7 @@ namespace TextCounterApp
 
             textBox1.Text = openFileDialog.FileName;
 
-            ITextCounterManager ITextManager = new TextCounterManagerRefactor();
+            ITextCounterManager ITextManager = new TextCounterManager();
 
             var result = ITextManager.ProcessFile(textBox1.Text);
 

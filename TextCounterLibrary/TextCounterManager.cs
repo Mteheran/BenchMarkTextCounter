@@ -24,16 +24,16 @@ namespace TextCounterLibrary
             foreach (var item in fileVector)
             {
                 if (!string.IsNullOrEmpty(item))
-                {
+                {           
                     validWords.Add(item);
                 }                
             }
 
-             Dictionary<string,int> repetedWords = new Dictionary<string,int>();
+            Dictionary<string,int> repetedWords = new Dictionary<string,int>();
 
             for (int i = 0; i < validWords.Count; i++)
             {
-                for (int  j = i+1; j < validWords.Count; j++)
+                for (int j = i+1; j < validWords.Count; j++)
                 {
                     if (validWords[i].ToLower() == validWords[j].ToLower() && !repetedWords.ContainsKey(validWords[j].ToLower()))
                     {

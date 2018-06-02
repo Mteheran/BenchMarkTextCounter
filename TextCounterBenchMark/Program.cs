@@ -30,6 +30,15 @@ namespace TextCounterBenchMark
 
             var result = ITextManager.ProcessFile(FileRoot);
         }
+
+        [Benchmark]
+        public void ProcessFileRefactor()
+        {
+            //vars
+            ITextCounterManager ITextManager = new TextCounterManagerRefactor();
+
+            var result = ITextManager.ProcessFile(FileRoot);
+        }
     }
    
 }
